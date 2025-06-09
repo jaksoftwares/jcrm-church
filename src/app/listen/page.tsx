@@ -1,5 +1,4 @@
 "use client";
-
 // app/page.tsx
 import Image from "next/image";
 import { useState } from "react";
@@ -15,7 +14,7 @@ export default function HomePage() {
     setSearchTerm("");
   };
 
-  // Just a placeholder array for sermon thumbnails (9 items)
+  // Dummy data for sermon thumbnails (9 items)
   const sermons = Array.from({ length: 9 }, (_, i) => i + 1);
 
   return (
@@ -23,24 +22,24 @@ export default function HomePage() {
       <div className="flex flex-col md:flex-row items-center md:items-start mt-10 w-full">
         {/* Left content section */}
         <div className="w-full md:w-1/2 p-6 md:p-10 text-center md:text-left">
-          <h1 className="text-3xl md:text-6xl font-bold mb-4 md:mb-6">
-            Deepen Your Faith Through the Word
-          </h1>
+          <h1 className="text-3xl md:text-6xl font-bold mb-4 md:mb-6">FAITH BY HEARING</h1>
           <h2 className="text-xl md:text-3xl mb-4 md:mb-8">
-            <span className="text-blue-500">Read, Reflect,</span>{" "}
-            <span className="text-red-500">and Grow</span>
+            <span className="text-blue-500">Listen & Be</span>{" "}
+            <span className="text-red-500">Transformed</span>
           </h2>
           <p className="text-gray-700 leading-relaxed">
-            Engage with powerful devotionals, enriching studies, and insightful
-            teachings in an easy-to-read format. Whether at home or on the move,
-            deepen your understanding of Scripture.
+            Deepen your faith with powerful sermons, inspiring devotionals,
+            and uplifting worship content—all accessible anytime, anywhere.
+            Whether you&apos;re looking to watch an impactful sermon, read an
+            insightful devotional, or listen to spirit-filled worship,
+            JCRM has you covered.
           </p>
         </div>
 
         {/* Right image section */}
         <div className="w-full md:w-3/4 relative h-[300px] md:h-[400px]">
           <Image
-            src="/images/bible.png"
+            src="/images/Rectangle 52.png"
             alt="Worship Background"
             fill
             className="object-contain rounded-lg"
@@ -109,15 +108,11 @@ export default function HomePage() {
                     className="object-cover rounded-lg"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-4">
-                    <h3 className="text-xl font-bold text-white">
-                      BUILDING STRONG FAMILIES
-                    </h3>
+                    <h3 className="text-xl font-bold text-white">BUILDING STRONG FAMILIES</h3>
                   </div>
                 </div>
                 <div className="mt-2">
-                  <p className="text-center text-gray-800 font-medium">
-                    The Beatitudes
-                  </p>
+                  <p className="text-center text-gray-800 font-medium">The Beatitudes</p>
                 </div>
               </div>
             ))}
@@ -126,9 +121,7 @@ export default function HomePage() {
 
         {/* View More button */}
         <div className="flex justify-center mt-8">
-          <button className="px-6 py-2 bg-black text-white rounded-full">
-            View More
-          </button>
+          <button className="px-6 py-2 bg-black text-white rounded-full">View More</button>
         </div>
       </div>
     </section>

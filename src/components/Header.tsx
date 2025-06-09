@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ChevronDown, Menu, X } from "lucide-react";
-import navItems from "../constants/navitems"; // adjust the path as needed
+import navItems from "../constants/navitems"; 
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
