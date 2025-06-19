@@ -1,8 +1,10 @@
 import './globals.css';
 import '@/styles/globals.css';
 import { ReactNode } from 'react';
-import Header from '@/components/Header';
-import Footer from '../components/Footer';
+// import Header from '@/components/Header';
+// import Footer from '@/components/Footer1';
+import { Navbar } from '@/components/common/Navbar';
+import { Footer } from '@/components/common/Footer';
 
 
 export const metadata = {
@@ -14,11 +16,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body className="min-h-screen flex flex-col">
-        {/* Navigation Bar */}
-        <Header />
+        {/* Fixed Navbar */}
+        <div className="fixed top-0 left-0 w-full z-50">
+          <Navbar />
+          {/* <Header /> */}
+        </div>
 
-        {/* Main content grows to fill space */}
-        <main className="">
+        {/* Main content */}
+        <main className="flex-grow">
           {children}
         </main>
 
