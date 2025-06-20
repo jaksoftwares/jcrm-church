@@ -14,6 +14,7 @@ export const navLinks = [
     ],
   },
   { label: "Sermons", href: "/sermons" },
+  { label: "Read", href: "/read" },
   { label: "Events", href: "/events" },
   { label: "Gallery", href: "/gallery" },
   { label: "Give", href: "/give" },
