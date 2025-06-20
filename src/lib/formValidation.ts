@@ -1,1 +1,1 @@
-export function validateForm(data: any) { return true; }
+// export function validateForm(data: any) { return true; }
