@@ -17,9 +17,9 @@ type Props = {
 export default function PDFViewer({ file, page, onLoadSuccess }: Props) {
   return (
     <Document
-      file={file}
-      onLoadSuccess={onLoadSuccess}
-      loading={<div className="text-center py-10">Loading PDF...</div>}
+    file={{ url: file }}
+    onLoadSuccess={onLoadSuccess}
+    loading={<div className="text-center py-10">Loading PDF...</div>}
     >
       <Page
         pageNumber={page}
