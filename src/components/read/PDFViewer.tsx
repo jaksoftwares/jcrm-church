@@ -14,10 +14,10 @@ type Props = {
   onLoadSuccess: ({ numPages }: { numPages: number }) => void;
 };
 
-export default function PDFViewer({ file, page, onLoadSuccess }: Props) {
+export default function PDFViewer({ page, onLoadSuccess }: Props) {
   return (
     <Document
-    file={{ url: file }}
+     file="https://jcrm-church.vercel.app/read/The-Joy-of-Freedom.pdf"
     onLoadSuccess={onLoadSuccess}
     loading={<div className="text-center py-10">Loading PDF...</div>}
     >
