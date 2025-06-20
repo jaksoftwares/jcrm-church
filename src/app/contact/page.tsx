@@ -91,7 +91,7 @@ export default function ContactPage() {
               className="rounded-xl w-full h-[300px] border"
               loading="lazy"
               allowFullScreen
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.00131193604!2d36.8172441!3d-1.2863898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f113f25e1f6a9%3A0x123456789abcde!2sJCRM%20Church!5e0!3m2!1sen!2ske!4v1712345678901"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1567.5973755711389!2d36.82918142302023!3d-1.2875703242696672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f114c4bef6a0b%3A0x8748ffed6c9f1382!2sJesus%20Come%20Revival%20Ministries!5e0!3m2!1sen!2ske!4v1750434112678!5m2!1sen!2ske"
             ></iframe>
           </div>
         </div>
