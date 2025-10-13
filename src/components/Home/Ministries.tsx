@@ -8,31 +8,31 @@ const ministries = [
 {
     title: "Worship Ministry",
     image: "/ministries/praise-team.jpg",
-    link: "/ministries/worship",
+    link: "/ministries",
     description: "Ushering God’s presence through music, sound, and spiritual sacrifice.",
   },
   {
     title: "Children Ministry",
     image: "/ministries/children-ministry.jpg",
-    link: "/ministries/children",
+    link: "/ministries",
     description: "Raising godly children through worship, fun, and biblical teachings.",
   },
   {
     title: "Youth Ministry",
     image: "/ministries/youths-ministry.jpg",
-    link: "/ministries/youth",
+    link: "/ministries",
     description: "Empowering youth to live boldly for Christ in today’s world.",
   },
   {
     title: "Women Ministry",
-    image: "/ministries/women.jpg",
-    link: "/ministries/women",
+    image: "/ministries/mildred.jpg",
+    link: "/ministries",
     description: "Uplifting women to grow spiritually, lead, and serve with grace.",
   },
   {
     title: "Men Ministry",
     image: "/ministries/men.jpg",
-    link: "/ministries/men",
+    link: "/ministries",
     description: "Building strong men rooted in faith, family, and leadership.",
   },
  

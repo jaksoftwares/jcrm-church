@@ -1,30 +1,22 @@
 // src/constants/mockEvents.ts
-export const mockEvents = [
+export const events = [
   {
-    title: "Monthly Worship Night",
-    date: "2025-07-12T18:00:00",
-    location: "JCRM HQ - Main Sanctuary",
-    link: "/events/monthly-worship-night",
+    title: "Annual December Conference",
+    date: "2025-12-26T14:00:00",
+    location: "JCRM Town Center",
+    link: "/events/annual-december-conference",
     description:
-      "An evening of powerful worship, praise, and spiritual revival led by our worship team and guest ministers.",
+      "You are all invired for this forth coming church conference that will be taking place from the 26th of December, 2025, to 31st. Come and be blessed.",
     image: "/events/event1.jpg",
   },
   {
-    title: "Kingdom Leadership Conference",
-    date: "2025-08-03T09:00:00",
-    location: "JCRM Conference Hall",
-    link: "/events/kingdom-leadership-conference",
+    title: "Kinani Crusade - Athi River",
+    date: "2024-10-23T09:00:00",
+    location: "Athi River, Kinani Branch",
+    link: "/events/youth-camp-2024",
     description:
-      "A leadership summit for ministry workers, department heads, and emerging leaders to be equipped and empowered.",
+      "Join us for a powerful crusade at our Kinani branch in Athi River. Experience worship, teachings, and miracles as we come together in faith.",
     image: "/events/event2.jpg",
-  },
-  {
-    title: "Youth Camp 2025",
-    date: "2025-09-15T10:00:00",
-    location: "JCRM Prayer Grounds",
-    link: "/events/youth-camp-2025",
-    description:
-      "A 3-day intensive camp for teenagers and young adults focused on spiritual growth, mentorship, and leadership training.",
-    image: "/events/event3.jpg",
-  },
-];
+  }
+
+]

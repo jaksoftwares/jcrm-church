@@ -4,45 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { Calendar, Clock } from "lucide-react";
 import { motion } from "framer-motion";
+import { events } from "@/constants/events";
 
-const events = [
-  {
-    title: "Annual December Conference",
-    date: "2025-12-26T14:00:00",
-    location: "JCRM Town Center",
-    link: "/events/monthly-worship-night",
-    description:
-      "You are all invired for this forth coming church conference that will be taking place from the 26th of December, 2025, to 31st. Come and be blessed.",
-    image: "/events/event1.jpg",
-  },
-//   {
-//     title: "Kingdom Leadership Conference",
-//     date: "2025-08-03T09:00:00",
-//     location: "JCRM Conference Hall",
-//     link: "/events/kingdom-leadership-conference",
-//     description:
-//       "A leadership summit for ministry workers, department heads, and emerging leaders to be equipped and empowered.",
-//     image: "/events/event2.jpg",
-//   },
-//   {
-//   title: "Youth Revival Weekend",
-//   date: "2025-08-17T15:00:00",
-//   location: "JCRM Youth Grounds",
-//   link: "/events/youth-revival-weekend",
-//   description:
-//     "A powerful 3-day youth retreat featuring breakout sessions, worship, and teachings designed to ignite a generation for Christ.",
-//   image: "/events/event3.jpg",
-// },
-// {
-//   title: "Family Restoration Service",
-//   date: "2025-09-01T10:30:00",
-//   location: "JCRM Main Auditorium",
-//   link: "/events/family-restoration-service",
-//   description:
-//     "A special Sunday service focused on healing, unity, and spiritual restoration for families across all generations.",
-//   image: "/events/event4.jpg",
-// }
-];
+
+
 
 export function UpcomingEvents() {
   return (

@@ -17,9 +17,9 @@ export const ebooks = [
   },
   {
     id: "3",
-    title: "Walking in the Spirit",
-    author: "Pastor Daniel W.",
-    cover: "/read/the-joy-of-freedomm.jpg",
+    title: "In the Courts of God",
+    author: "Apostle Arthur L. Likhakasi",
+    cover: "/read/in-the-courts-of-God.jpg",
     pdf: "/read/the-joy-of-freedom.pdf",
     price: 8,
   },

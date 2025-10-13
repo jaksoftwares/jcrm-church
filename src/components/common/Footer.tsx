@@ -20,7 +20,7 @@ export function Footer() {
             <span className="text-xl font-bold">JCRM</span>
           </div>
           <p className="text-sm text-gray-300 leading-relaxed">
-            Jesus Christ Reachout Ministries (JCRM) is a global ministry called to preach, disciple, and demonstrate the love of Christ to all people and nations.
+            Jesus Come Revival Ministry (JCRM) is a global ministry called to preach, disciple, and demonstrate the love of Christ to all people and nations.
           </p>
         </div>
 
@@ -32,7 +32,6 @@ export function Footer() {
               { label: "About Us", href: "/about" },
               { label: "Sermons", href: "/sermons" },
               { label: "Events", href: "/events" },
-              { label: "Gallery", href: "/gallery" },
               { label: "Give", href: "/give" },
               { label: "Contact", href: "/contact" },
             ].map((link) => (
@@ -50,11 +49,11 @@ export function Footer() {
           <h3 className="text-lg font-semibold mb-4">Ministries</h3>
           <ul className="space-y-2 text-sm text-gray-300">
             {[
-              { label: "Children", href: "/ministries/children" },
-              { label: "Youth", href: "/ministries/youth" },
-              { label: "Women", href: "/ministries/women" },
-              { label: "Men", href: "/ministries/men" },
-              { label: "Worship", href: "/ministries/worship" },
+              { label: "Children", href: "/ministries" },
+              { label: "Youth", href: "/ministries" },
+              { label: "Women", href: "/ministries" },
+              { label: "Men", href: "/ministries" },
+              { label: "Worship", href: "/ministries" },
             ].map((link) => (
               <li key={link.href}>
                 <Link href={link.href} className="hover:text-[#64B5F6] transition-colors">
@@ -69,10 +68,10 @@ export function Footer() {
         <div>
           <h3 className="text-lg font-semibold mb-4">Visit Us</h3>
           <p className="flex items-start text-sm text-gray-300 gap-2 mb-2">
-            <MapPin size={16} className="mt-1" /> JCRM Headquarters, Gospel Plaza, Nairobi, Kenya
+            <MapPin size={16} className="mt-1" /> 5th Flr, KPCU Building, Wakulima House, Along Haile Sellasie Avenue, Nairobi
           </p>
           <p className="flex items-start text-sm text-gray-300 gap-2 mb-2">
-            <Clock size={16} className="mt-1" /> Sunday: 9AM - 12PM<br />Wednesday: 5PM - 7PM
+            <Clock size={16} className="mt-1" /> Sunday: 9AM - 1:30PM<br />Wednesday: 5:30PM - 7:30PM
           </p>
           <Link
             href="https://maps.google.com"
@@ -86,8 +85,8 @@ export function Footer() {
         {/* Connect with Us */}
         <div>
           <h3 className="text-lg font-semibold mb-4">Connect</h3>
-          <p className="text-sm text-gray-300 mb-2">info@jcrm.org</p>
-          <p className="text-sm text-gray-300 mb-4">+254 700 000000</p>
+          <p className="text-sm text-gray-300 mb-2">info@jcrministries.com</p>
+          <p className="text-sm text-gray-300 mb-4">+254 722 961 353</p>
           <div className="flex space-x-4">
             <Link href="https://facebook.com" target="_blank" className="hover:text-[#64B5F6]">
               <Facebook />
@@ -95,10 +94,10 @@ export function Footer() {
             <Link href="https://twitter.com" target="_blank" className="hover:text-[#64B5F6]">
               <Twitter />
             </Link>
-            <Link href="https://youtube.com" target="_blank" className="hover:text-[#64B5F6]">
+            <Link href="https://youtube.com/@jcrmchannel" target="_blank" className="hover:text-[#64B5F6]">
               <Youtube />
             </Link>
-            <Link href="mailto:info@jcrm.org" className="hover:text-[#64B5F6]">
+            <Link href="mailto:info@jcrministries.com" className="hover:text-[#64B5F6]">
               <Mail />
             </Link>
           </div>
@@ -107,7 +106,7 @@ export function Footer() {
 
       {/* Bottom Section */}
       <div className="border-t border-gray-700 mt-10 pt-4 text-center text-sm text-gray-400 px-4">
-        © {new Date().getFullYear()} Jesus Christ Reachout Ministries. All rights reserved.
+        © {new Date().getFullYear()} Jesus Come Revival Ministries. All rights reserved.
       </div>
     </footer>
   );

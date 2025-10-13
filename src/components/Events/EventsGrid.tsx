@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import { mockEvents } from "@/constants/events";
+import { events } from "@/constants/events";
 import { EventCard } from "./EventCard";
 
 type EventsGridProps = {
@@ -16,7 +16,7 @@ export default function EventsGrid({ category, keyword }: EventsGridProps) {
 
   // Filter logic
   const filteredEvents = useMemo(() => {
-    return mockEvents.filter((event) => {
+    return events.filter((event) => {
       const matchKeyword =
         event.title.toLowerCase().includes(normalizedKeyword) ||
         event.location.toLowerCase().includes(normalizedKeyword) ||

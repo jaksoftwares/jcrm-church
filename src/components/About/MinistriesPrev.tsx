@@ -31,7 +31,7 @@ const ministries = [
   },
   {
     icon: <Heart size={28} className="text-[#0077C8]" />,
-    title: "Compassion / Social Welfare Department",
+    title: "Social Welfare Department",
     description:
       "Provides pastoral care and practical assistance — supporting the needy, coordinating weddings, funerals, hospital visits and other social needs.",
   },

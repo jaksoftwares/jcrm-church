@@ -106,6 +106,15 @@ const allMinistries: Ministry[] = [
     image: "/ministries/children-ministry.jpg",
     link: "/ministries/children",
   },
+   {
+    icon: <BookOpen size={28} className="text-[#0077C8]" />,
+    title: "Home Cell Fellowships",
+    category: "Home Cell",
+    description:
+      "This is the department where we have church members in different localities meeting, for home meetings . We currently have home cell meetings in the following areas: Ngong, Roysambu, Kawangware.",
+    image: "/ministries/children-ministry.jpg",
+    link: "/ministries/children",
+  },
 ];
 
 

@@ -81,15 +81,15 @@ export default function GivePage() {
             {method === "mpesa" && (
               <div>
                 <h3 className="text-xl font-semibold mb-2">M-Pesa Paybill</h3>
-                <p><strong>Paybill:</strong> <span className="font-mono">123456</span></p>
-                <p><strong>Account:</strong> JCRM Giving</p>
+                <p><strong>Paybill:</strong> <span className="font-mono">4081657</span></p>
+                <p><strong>Account:</strong> OFFERING or TITHE</p>
               </div>
             )}
             {method === "bank" && (
               <div>
                 <h3 className="text-xl font-semibold mb-2">Bank Transfer</h3>
                 <p><strong>Bank:</strong> Kingdom Bank</p>
-                <p><strong>Account Name:</strong> Jesus Christ Revealed Ministries</p>
+                <p><strong>Account Name:</strong> Jesus Come Revival Ministries</p>
                 <p><strong>Account Number:</strong> 0123456789</p>
                 <p><strong>Branch:</strong> Nairobi</p>
               </div>
@@ -112,8 +112,8 @@ export default function GivePage() {
               <div>
                 <h3 className="text-xl font-semibold mb-2">Cash / In-person Giving</h3>
                 <p>You can give during our services or visit the church office at:</p>
-                <p className="mt-2">JCRM Headquarters, City Centre, Nairobi</p>
-                <p>Open Mon - Fri, 9am - 5pm</p>
+                <p className="mt-2">5th flr, KPCU, Wakulima House along Haile Sellasie Avenue, Nairobi</p>
+                <p>Open Tue - Sun, 9am - 5pm</p>
               </div>
             )}
           </div>
@@ -147,10 +147,8 @@ export default function GivePage() {
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#0077C8]"
               required
             >
-              <option value="">Select Giving Purpose</option>
-              <option>Offering</option>
+              <option value="">Offering</option>
               <option>Tithe</option>
-              <option>Partnership</option>
               <option>Project Support</option>
             </select>
             <button

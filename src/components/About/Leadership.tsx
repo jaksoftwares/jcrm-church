@@ -28,7 +28,7 @@ const leaders = [
   {
     name: "Pastor Eugene Shibeka",
     title: "Pastor – Youth & Social Welfare",
-    image: "/about/pastor-eugene-shibeka.jpg",
+    image: "/about/shibeka.jpg",
     bio: "Pastor Eugene provides pastoral oversight for the youth and welfare departments, with a heart for empowering the next generation and supporting families in times of need.",
   },
 
@@ -50,13 +50,13 @@ const leaders = [
   {
     name: "Amos Shibutse",
     title: "Men’s Department",
-    image: "/about/placeholder.png",
+    image: "/about/amos.jpg",
     bio: "Amos leads the men’s department, mentoring men to grow in faith, responsibility, and godly leadership in the home, church, and society.",
   },
   {
     name: "Mildred Adekha",
     title: "Women’s Department",
-    image: "/about/placeholder.png",
+    image: "/about/mildred.jpg",
     bio: "Mildred oversees the women’s department, equipping women to walk in their divine calling and serve as pillars in the church and community.",
   },
   {
@@ -65,10 +65,16 @@ const leaders = [
     image: "/about/jeff-alulu.png",
     bio: "Geoffrey directs the worship ministry, raising a team of anointed worshippers who usher believers into God’s presence through music and praise.",
   },
+    {
+    name: "Victor Siero",
+    title: "Media & Communications Department",
+    image: "/about/victor.jpg",
+    bio: "Victor is incharge of the media and communications sector, ensuring communications ,and services are shared accodingly and in due time.",
+  },
   {
-    name: "Viona Shisanya",
+    name: "Viona Lihavi",
     title: "Ushering & Hospitality",
-    image: "/about/placeholder.png",
+    image: "/about/viona2.jpg",
     bio: "Viona leads the ushering and hospitality team, creating a welcoming and orderly environment for all who come to fellowship at JCRM.",
   },
   {
@@ -76,6 +82,12 @@ const leaders = [
     title: "Children’s Ministry",
     image: "/about/beverlyne-khamusali.jpeg",
     bio: "Beverlyne leads the children’s ministry, nurturing the young in God’s Word and laying strong spiritual foundations for the next generation.",
+  },
+  {
+    name: "Dennis Masinde",
+    title: "Church Development and Projects",
+    image: "/about/placeholder.png",
+    bio: "Dennis is incharge of handling and overseeing church development and projects."
   },
 ];
 

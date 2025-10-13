@@ -60,8 +60,7 @@ export function MissionVisionValues() {
           >
             <h3 className="text-xl font-semibold text-[#0077C8] mb-3">Our Mission</h3>
             <p className="text-gray-700 text-lg leading-relaxed">
-              To preach the full gospel of Jesus Christ, raise Spirit-filled believers, 
-              and equip the church to live in holiness, power, and fruitfulness. (Matt 28:19-20; Eph 4:12-13)
+              To bring people to Jesus Christ and make them members in His family, develop them to be both hearers and doers of the word, to equip them for the ministry in the church and communicate God&apos;s word through evangelism and celebrate God&apos;s precence in worship (Matt 28:19-20; Eph 4:12-13)
             </p>
           </motion.div>
 
@@ -73,8 +72,7 @@ export function MissionVisionValues() {
           >
             <h3 className="text-xl font-semibold text-[#0077C8] mb-3">Our Vision</h3>
             <p className="text-gray-700 text-lg leading-relaxed">
-              To be a global apostolic center of revival — preparing the church for Christ’s return 
-              and transforming nations through the power of the Holy Spirit. (Acts 1:8; 1 Thes 4:16-17)
+              To be a church fully equipped for the work of mission exercising the abundant gift of the Holyspirit (All the gifts of the Holyspirit) and  the five-fold ministry service according to Ephesians 4:11-12. To love , care and be able to bring all the knowledge of God and His Son Jesus Christ as the Lord and Savior. (Acts 1:8; 1 Thes 4:16-17)
             </p>
           </motion.div>
         </div>
