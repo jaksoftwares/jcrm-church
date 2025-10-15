@@ -10,11 +10,9 @@ type EventsGridProps = {
 };
 
 export default function EventsGrid({ category, keyword }: EventsGridProps) {
-  // Normalize filters
   const normalizedKeyword = keyword.toLowerCase().trim();
   const normalizedCategory = category.toLowerCase();
 
-  // Filter logic
   const filteredEvents = useMemo(() => {
     return events.filter((event) => {
       const matchKeyword =
@@ -24,8 +22,7 @@ export default function EventsGrid({ category, keyword }: EventsGridProps) {
 
       const matchCategory =
         normalizedCategory === "all" ||
-        event.description.toLowerCase().includes(normalizedCategory) ||
-        event.title.toLowerCase().includes(normalizedCategory);
+        event.category.toLowerCase().includes(normalizedCategory);
 
       return matchKeyword && matchCategory;
     });

@@ -16,7 +16,7 @@ export function JoinMinistryCTA() {
         </div>
 
         <Link
-          href="/join"
+          href="/contact"
           className="inline-flex items-center gap-2 bg-[#D32F2F] hover:bg-red-600 text-white px-6 py-3 rounded-full text-sm font-semibold transition"
         >
           Join a Ministry

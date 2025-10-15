@@ -17,6 +17,6 @@ export const navLinks = [
   { label: "Read", href: "/read" },
   { label: "Events", href: "/events" },
   // { label: "Gallery", href: "/gallery" },
-  {label: "Harod Bible College", href:"harod-bible-college"},
+  {label: "Harod Bible College", href:"/harod-bible-college" },
   { label: "Contact", href: "/contact" },
 ];

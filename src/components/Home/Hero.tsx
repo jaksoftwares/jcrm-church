@@ -1,55 +1,124 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-export function Hero() {
+// Hero Section with site-specific CTAs
+export default function Hero() {
+  const [current, setCurrent] = useState(0);
+
+  const slides = [
+    {
+      image:
+        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80",
+      title: "Welcome to JCRM",
+      text: "A Christ-centered community transforming lives through love and the power of the Holy Spirit.",
+      primaryBtn: { label: "Learn About Us", link: "/about" },
+      secondaryBtn: { label: "Explore Ministries", link: "/ministries" },
+    },
+    {
+      image:
+        "https://images.unsplash.com/photo-1521334884684-d80222895322?w=1600&q=80",
+      title: "Experience God's Presence",
+      text: "Join us in worship and encounter the life-changing presence of God through His Word and Spirit.",
+      primaryBtn: { label: "Watch Sermons", link: "/sermons" },
+      secondaryBtn: { label: "Attend Upcoming Events", link: "/events" },
+    },
+    {
+      image:
+        "https://images.unsplash.com/photo-1528222354212-a29573cdb844?w=1600&q=80",
+      title: "Grow in Faith and Knowledge",
+      text: "Be equipped through the Word and grow deeper in your faith with our learning and outreach programs.",
+      primaryBtn: { label: "Read Articles & Devotionals", link: "/read" },
+      secondaryBtn: { label: "Join Harod Bible College", link: "/harod-bible-college" },
+    },
+  ];
+
+  // Auto-slide every 6 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, [slides.length]);
+
   return (
-    <section className="relative bg-black text-white min-h-[80vh] flex items-center justify-center overflow-hidden">
-      {/* Background image */}
-      <Image
-        src="/hero.jpg"
-        alt="Church service"
-        layout="fill"
-        objectFit="cover"
-        className="opacity-80"
-        priority
-      />
+    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-black text-white">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={current}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
+          className="absolute inset-0"
+        >
+          {/* Background image */}
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${slides[current].image})` }}
+          />
+          {/* Overlay for readability */}
+          <div className="absolute inset-0 bg-black/60" />
+        </motion.div>
+      </AnimatePresence>
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-60" />
+      {/* Text + Buttons */}
+      <div className="relative z-10 px-6 text-center max-w-3xl">
+        <motion.h1
+          key={slides[current].title}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4"
+        >
+          {slides[current].title}
+        </motion.h1>
 
-      {/* Content */}
-      <motion.div
-        className="relative z-10 text-center px-4 max-w-3xl"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4">
-          Welcome to <span className="text-[#64B5F6]">JCRM</span>
-        </h1>
-        <p className="text-lg md:text-xl text-gray-200 mb-8">
-          Transforming lives with the love and power of Jesus Christ.
-        </p>
+        <motion.p
+          key={slides[current].text}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="text-base sm:text-lg md:text-xl text-gray-200 mb-8 leading-relaxed"
+        >
+          {slides[current].text}
+        </motion.p>
 
-        {/* Call to Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link
-            href="/about"
+        {/* Buttons (per slide) */}
+        <motion.div
+          key={slides[current].primaryBtn.label}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center"
+        >
+          <a
+            href={slides[current].primaryBtn.link}
             className="bg-[#0077C8] hover:bg-[#005fa3] text-white px-6 py-3 rounded-full font-semibold transition"
           >
-            Learn More
-          </Link>
-          <Link
-            href="/sermons"
+            {slides[current].primaryBtn.label}
+          </a>
+          <a
+            href={slides[current].secondaryBtn.link}
             className="bg-[#D32F2F] hover:bg-red-600 text-white px-6 py-3 rounded-full font-semibold transition"
           >
-            Watch Sermons
-          </Link>
-        </div>
-      </motion.div>
+            {slides[current].secondaryBtn.label}
+          </a>
+        </motion.div>
+      </div>
+
+      {/* Dots Indicator */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+        {slides.map((_, i) => (
+          <div
+            key={i}
+            className={`w-3 h-3 rounded-full transition-all ${
+              i === current ? "bg-[#64B5F6] scale-125" : "bg-white/50"
+            }`}
+          />
+        ))}
+      </div>
     </section>
   );
 }

@@ -8,13 +8,14 @@ import React from 'react';
 // import GetInvolved from '@/components/home/get-invoved';
 // import Events from '@/components/home/events';import { Hero } from '@/components/Home/Hero';
 // import Hero from '@/components/home/hero';
-import { Hero } from '@/components/Home/Hero';
+import Hero from '@/components/Home/Hero';
 import { AboutHighlight } from "@/components/Home/AboutHighlight";
 import { MinistriesPreview } from '@/components/Home/Ministries';
 import { SermonsPreview } from '@/components/Home/SermonsPreview';
 import { UpcomingEvents } from '@/components/Home/UpcomingEvents';
 // import { GalleryHighlight } from '@/components/Home/GalleryHighlight';
 import { CallToActionBanner } from '@/components/Home/CallToAction';
+import WeeklyServices from '@/components/home/weeklyServices';
 
 
 const HomePage = () => {
@@ -25,16 +26,9 @@ const HomePage = () => {
       <MinistriesPreview />
       <SermonsPreview/>
       <UpcomingEvents />
-      {/* <GalleryHighlight /> */}
+      <WeeklyServices/>
       <CallToActionBanner />
-      {/* Uncomment the following components as needed */}
-      {/* <Hero /> */}
-      {/* <WelcomeSection /> */}
-      {/* <WeeklyServices /> */}
-      {/* <WatchReadListen /> */}
-      {/* <Events /> */}
-      {/* <GetInvolved /> */}
-      {/* Additional content can go here */}
+    
 
     </>
   );

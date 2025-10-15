@@ -44,25 +44,25 @@ export function Footer() {
           </ul>
         </div>
 
-        {/* Ministries */}
-        <div>
-          <h3 className="text-lg font-semibold mb-4">Ministries</h3>
-          <ul className="space-y-2 text-sm text-gray-300">
-            {[
-              { label: "Children", href: "/ministries" },
-              { label: "Youth", href: "/ministries" },
-              { label: "Women", href: "/ministries" },
-              { label: "Men", href: "/ministries" },
-              { label: "Worship", href: "/ministries" },
-            ].map((link) => (
-              <li key={link.href}>
-                <Link href={link.href} className="hover:text-[#64B5F6] transition-colors">
-                  {link.label} Ministry
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+          {/* Ministries */}
+      <div>
+        <h3 className="text-lg font-semibold mb-4">Ministries</h3>
+        <ul className="space-y-2 text-sm text-gray-300">
+          {[
+            { label: "Children", href: "/ministries" },
+            { label: "Youth", href: "/ministries" },
+            { label: "Women", href: "/ministries" },
+            { label: "Men", href: "/ministries" },
+            { label: "Worship", href: "/ministries" },
+          ].map((link) => (
+            <li key={`${link.href}-${link.label}`}>
+              <Link href={link.href} className="hover:text-[#64B5F6] transition-colors">
+                {link.label} Ministry
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
 
         {/* Visit Us */}
         <div>

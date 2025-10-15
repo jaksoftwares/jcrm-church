@@ -1,23 +1,22 @@
-// src/components/events/EventsHero.tsx
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { events } from "@/constants/events";
 
 export default function EventsHero() {
+  const mainEvent = events[0];
+
   return (
     <section className="relative h-[60vh] md:h-[50vh] w-full overflow-hidden">
-      {/* Background Image */}
       <Image
-        src="/events/hero.jpg"
-        alt="JCRM Event"
-        layout="fill"
-        objectFit="cover"
-        className="brightness-[0.2]"
+        src={mainEvent.image || "/images/default-event.jpg"}
+        alt={mainEvent.title}
+        fill
+        className="object-cover brightness-[0.3]"
         priority
       />
 
-      {/* Overlay Content */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -25,10 +24,10 @@ export default function EventsHero() {
         className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
       >
         <h1 className="text-white text-4xl md:text-6xl font-bold drop-shadow-md">
-          Upcoming Events
+          {mainEvent.title}
         </h1>
         <p className="text-white text-lg md:text-xl max-w-2xl mt-4 drop-shadow-sm">
-          Engage, grow, and experience God through powerful gatherings, conferences, and community outreach.
+          {mainEvent.description}
         </p>
       </motion.div>
     </section>

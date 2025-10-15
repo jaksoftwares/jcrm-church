@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { BookOpen } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 type Props = {
   book: {
@@ -14,7 +15,7 @@ type Props = {
   onPreview: (bookId: string) => void;
 };
 
-export function BookCard({ book, onPreview }: Props) {
+export function BookCard({ book }: Props) {
   return (
     <motion.div
       whileHover={{ scale: 1.03 }}
@@ -33,12 +34,14 @@ export function BookCard({ book, onPreview }: Props) {
           <h3 className="text-xl font-semibold text-gray-800">{book.title}</h3>
           <p className="text-sm text-gray-600">By {book.author}</p>
         </div>
-        <button
-          onClick={() => onPreview(book.id)}
-          className="mt-4 bg-[#0077C8] text-white px-4 py-2 rounded-md flex items-center gap-2 hover:bg-[#005fa3] transition"
+
+        <Link
+          href="https://jcrmlibrary.vercel.app/"
+          target="_blank"
+          className="mt-4 bg-[#0077C8] text-white px-4 py-2 rounded-md flex items-center gap-2 justify-center hover:bg-[#005fa3] transition"
         >
-          <BookOpen size={18} /> Read Preview
-        </button>
+          <BookOpen size={18} /> Visit Library
+        </Link>
       </div>
     </motion.div>
   );
