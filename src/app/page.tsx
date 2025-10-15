@@ -15,7 +15,7 @@ import { SermonsPreview } from '@/components/Home/SermonsPreview';
 import { UpcomingEvents } from '@/components/Home/UpcomingEvents';
 // import { GalleryHighlight } from '@/components/Home/GalleryHighlight';
 import { CallToActionBanner } from '@/components/Home/CallToAction';
-import WeeklyServices from '@/components/home/weeklyServices';
+import WeeklyServices from '@/components/Home/weeklyServices';
 
 
 const HomePage = () => {
