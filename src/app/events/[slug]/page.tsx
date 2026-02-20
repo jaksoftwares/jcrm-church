@@ -2,21 +2,23 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import { Calendar, Clock, MapPin, ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import { events } from "@/constants/events";
+import { 
+  events, 
+  getEventBySlug, 
+  formatEventDateRange, 
+  formatEventTimeRange,
+  EVENT_CATEGORIES 
+} from "@/constants/events";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
 
-  const event = events.find(
-    (e) =>
-      e.slug === slug ||
-      e.title.toLowerCase().replace(/\s+/g, "-") === decodeURIComponent(slug)
-  );
+  const event = getEventBySlug(decodeURIComponent(slug));
 
   if (!event)
     return {
       title: "Event Not Found | Jesus Come Revival Ministries",
-      description: "The event you’re looking for could not be found.",
+      description: "The event you're looking for could not be found.",
     };
 
   return {
@@ -33,27 +35,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function EventPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
 
-  const event = events.find(
-    (e) =>
-      e.slug === slug ||
-      e.title.toLowerCase().replace(/\s+/g, "-") === decodeURIComponent(slug)
-  );
+  const event = getEventBySlug(decodeURIComponent(slug));
 
   if (!event) return notFound();
 
-  const start = new Date(event.startDate);
-  const end = new Date(event.endDate);
-
-  const formattedDate = new Intl.DateTimeFormat("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  }).formatRange(start, end);
-
-  const formattedTime = `${start.toLocaleTimeString([], {
-    hour: "2-digit",
-    minute: "2-digit",
-  })} – ${end.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}`;
+  const formattedDate = formatEventDateRange(event.startDate, event.endDate);
+  const formattedTime = formatEventTimeRange(event.startDate, event.endDate);
+  const categoryConfig = EVENT_CATEGORIES[event.category];
 
   return (
     <main className="min-h-screen bg-gray-50 pb-20">
@@ -67,7 +55,16 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
           sizes="100vw"
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6">
-          <h1 className="text-4xl md:text-5xl font-bold drop-shadow-lg mb-3">
+          {/* Category Badge */}
+          {categoryConfig && (
+            <span 
+              className="px-4 py-1 rounded-full text-sm font-semibold mb-4"
+              style={{ backgroundColor: categoryConfig.color }}
+            >
+              {event.category}
+            </span>
+          )}
+          <h1 className="text-4xl md:text-5xl font-bold drop-shadow-lg mb-3 max-w-4xl">
             {event.title}
           </h1>
           <p className="max-w-2xl text-gray-200">
@@ -78,6 +75,7 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
 
       <section className="max-w-5xl mx-auto mt-10 px-6">
         <div className="bg-white rounded-2xl shadow-lg p-8 space-y-6 animate-fadeIn">
+          {/* Event Info */}
           <div className="flex flex-wrap gap-6 text-gray-700 text-sm sm:text-base">
             <div className="flex items-center gap-2">
               <Calendar className="text-[#0077C8] w-5 h-5" />
@@ -95,8 +93,20 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
             </div>
           </div>
 
-          <p className="text-lg text-gray-700 leading-relaxed">{event.description}</p>
+          {/* Event Description */}
+          <div className="prose prose-lg max-w-none">
+            {event.fullDescription ? (
+              event.fullDescription.split('\n').map((paragraph, idx) => (
+                <p key={idx} className="text-lg text-gray-700 leading-relaxed mb-4">
+                  {paragraph}
+                </p>
+              ))
+            ) : (
+              <p className="text-lg text-gray-700 leading-relaxed">{event.description}</p>
+            )}
+          </div>
 
+          {/* Back Button */}
           <div className="pt-6">
             <Link
               href="/events"

@@ -62,18 +62,17 @@ export default function ContactPage() {
             <div className="flex items-start gap-4">
               <Phone className="text-[#0077C8]" />
               <p className="text-gray-700">
-                +254 712 345 678<br />
-                +254 721 123 456
+                +254 722 961 353
               </p>
             </div>
             <div className="flex items-start gap-4">
               <Mail className="text-[#0077C8]" />
-              <p className="text-gray-700">info@jcrm.org</p>
+              <p className="text-gray-700">info@jcrmchurch.org</p>
             </div>
 
             {/* Socials */}
             <div className="flex gap-4 mt-6">
-              <a href="https://facebook.com/jcrm" target="_blank" rel="noreferrer">
+              <a href="https://www.facebook.com/jcrministries" target="_blank" rel="noreferrer">
                 <Facebook className="text-gray-600 hover:text-[#0077C8]" />
               </a>
               <a href="https://instagram.com/jcrm" target="_blank" rel="noreferrer">

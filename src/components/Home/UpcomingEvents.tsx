@@ -3,9 +3,17 @@
 import { Calendar, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { events } from "@/constants/events";
+import { 
+  getUpcomingEvents, 
+  formatEventDateRange,
+  formatEventTimeRange,
+  EVENT_CATEGORIES 
+} from "@/constants/events";
 
 export function UpcomingEvents() {
+  // Get upcoming events sorted by date
+  const upcomingEvents = getUpcomingEvents();
+
   return (
     <section className="bg-white py-24">
       <div className="max-w-7xl mx-auto px-4">
@@ -30,26 +38,14 @@ export function UpcomingEvents() {
 
         {/* Events Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {events.map((event, index) => {
-            const start = new Date(event.startDate);
-            const end = new Date(event.endDate);
-
-            const startDay = start.getDate();
-            const startMonth = start.toLocaleString("default", { month: "short" });
-            const endDay = end.getDate();
-            const endMonth = end.toLocaleString("default", { month: "short" });
-
-            const sameMonth = startMonth === endMonth;
-            const formattedDate = sameMonth
-              ? `${startMonth} ${startDay}–${endDay}, ${end.getFullYear()}`
-              : `${startMonth} ${startDay} – ${endMonth} ${endDay}, ${end.getFullYear()}`;
-
-            // Create slug dynamically from event title
-            const slug = event.title.toLowerCase().replace(/\s+/g, "-");
+          {upcomingEvents.map((event, index) => {
+            const formattedDate = formatEventDateRange(event.startDate, event.endDate);
+            const formattedTime = formatEventTimeRange(event.startDate, event.endDate);
+            const categoryConfig = EVENT_CATEGORIES[event.category];
 
             return (
               <motion.div
-                key={event.title}
+                key={event.slug}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -66,11 +62,18 @@ export function UpcomingEvents() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
                   <div className="absolute top-6 left-6 bg-[#0077C8] text-white w-20 h-20 rounded-2xl flex flex-col items-center justify-center font-bold shadow-xl">
-                    <span className="text-3xl">{startDay}</span>
-                    <span className="text-sm uppercase">{startMonth}</span>
+                    <span className="text-3xl">
+                      {new Date(event.startDate).getDate()}
+                    </span>
+                    <span className="text-sm uppercase">
+                      {new Date(event.startDate).toLocaleString("default", { month: "short" })}
+                    </span>
                   </div>
 
-                  <div className="absolute top-6 right-6 bg-white/20 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-semibold">
+                  <div 
+                    className="absolute top-6 right-6 px-4 py-2 rounded-full text-sm font-semibold text-white"
+                    style={{ backgroundColor: categoryConfig?.color || '#6B7280' }}
+                  >
                     {event.category}
                   </div>
                 </div>
@@ -95,17 +98,7 @@ export function UpcomingEvents() {
                       <div className="bg-blue-50 p-2 rounded-lg">
                         <Clock className="w-5 h-5 text-[#0077C8]" />
                       </div>
-                      <span className="font-medium">
-                        {start.toLocaleTimeString([], {
-                          hour: "2-digit",
-                          minute: "2-digit",
-                        })}
-                        {" – "}
-                        {end.toLocaleTimeString([], {
-                          hour: "2-digit",
-                          minute: "2-digit",
-                        })}
-                      </span>
+                      <span className="font-medium">{formattedTime}</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="bg-blue-50 p-2 rounded-lg">📍</div>
@@ -113,9 +106,9 @@ export function UpcomingEvents() {
                     </div>
                   </div>
 
-                  {/* ✅ Dynamic Link */}
+                  {/* Dynamic Link */}
                   <Link
-                    href={`/events/${slug}`}
+                    href={`/events/${event.slug}`}
                     className="block w-full bg-[#D32F2F] hover:bg-red-600 text-white py-3 rounded-full font-semibold text-center transition-all duration-300 mt-6"
                   >
                     View Details

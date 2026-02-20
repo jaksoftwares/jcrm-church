@@ -85,10 +85,10 @@ export function Footer() {
         {/* Connect with Us */}
         <div>
           <h3 className="text-lg font-semibold mb-4">Connect</h3>
-          <p className="text-sm text-gray-300 mb-2">info@jcrministries.com</p>
+          <p className="text-sm text-gray-300 mb-2">info@jcrmchurch.org</p>
           <p className="text-sm text-gray-300 mb-4">+254 722 961 353</p>
           <div className="flex space-x-4">
-            <Link href="https://facebook.com" target="_blank" className="hover:text-[#64B5F6]">
+            <Link href="https://www.facebook.com/jcrministries" target="_blank" className="hover:text-[#64B5F6]">
               <Facebook />
             </Link>
             <Link href="https://twitter.com" target="_blank" className="hover:text-[#64B5F6]">
@@ -97,7 +97,7 @@ export function Footer() {
             <Link href="https://youtube.com/@jcrmchannel" target="_blank" className="hover:text-[#64B5F6]">
               <Youtube />
             </Link>
-            <Link href="mailto:info@jcrministries.com" className="hover:text-[#64B5F6]">
+            <Link href="mailto:info@jcrmchurch.org" className="hover:text-[#64B5F6]">
               <Mail />
             </Link>
           </div>

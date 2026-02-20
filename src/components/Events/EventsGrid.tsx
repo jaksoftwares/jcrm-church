@@ -1,46 +1,71 @@
 "use client";
 
 import { useMemo } from "react";
-import { events } from "@/constants/events";
+import { filterEvents, EVENT_CATEGORY_LIST, EventFilters } from "@/constants/events";
 import { EventCard } from "./EventCard";
 
 type EventsGridProps = {
   category: string;
   keyword: string;
+  status?: 'upcoming' | 'past' | 'all';
 };
 
-export default function EventsGrid({ category, keyword }: EventsGridProps) {
-  const normalizedKeyword = keyword.toLowerCase().trim();
-  const normalizedCategory = category.toLowerCase();
+export default function EventsGrid({ 
+  category, 
+  keyword, 
+  status = 'upcoming' 
+}: EventsGridProps) {
+  const filters: EventFilters = {
+    category: category as EventFilters['category'],
+    keyword,
+    status,
+  };
 
   const filteredEvents = useMemo(() => {
-    return events.filter((event) => {
-      const matchKeyword =
-        event.title.toLowerCase().includes(normalizedKeyword) ||
-        event.location.toLowerCase().includes(normalizedKeyword) ||
-        event.description.toLowerCase().includes(normalizedKeyword);
+    return filterEvents(filters);
+  }, [category, keyword, status]);
 
-      const matchCategory =
-        normalizedCategory === "all" ||
-        event.category.toLowerCase().includes(normalizedCategory);
+  // Get section title based on status
+  const getSectionTitle = () => {
+    switch (status) {
+      case 'past':
+        return 'Past Events';
+      case 'upcoming':
+      default:
+        return 'Upcoming Events';
+    }
+  };
 
-      return matchKeyword && matchCategory;
-    });
-  }, [normalizedCategory, normalizedKeyword]);
+  // Get empty state message
+  const getEmptyMessage = () => {
+    if (category !== 'All' || keyword) {
+      return `No ${status === 'past' ? 'past ' : ''}events found matching your criteria.`;
+    }
+    return status === 'past' 
+      ? 'No past events to display.' 
+      : 'No upcoming events at the moment. Check back soon!';
+  };
 
   return (
     <section className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-10">
-          Upcoming Events
+          {getSectionTitle()}
         </h2>
 
         {filteredEvents.length === 0 ? (
-          <p className="text-center text-gray-600 text-lg">No events found.</p>
+          <div className="text-center py-12">
+            <p className="text-gray-600 text-lg mb-4">{getEmptyMessage()}</p>
+            {status === 'past' && (
+              <p className="text-gray-500 text-sm">
+                Browse our upcoming events to join us in person!
+              </p>
+            )}
+          </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredEvents.map((event) => (
-              <EventCard key={event.link} event={event} />
+              <EventCard key={event.slug} event={event} />
             ))}
           </div>
         )}
