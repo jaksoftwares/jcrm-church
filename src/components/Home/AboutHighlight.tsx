@@ -21,16 +21,16 @@ export function AboutHighlight() {
         <div>
           <h2 className="text-3xl font-bold text-gray-800 mb-4">About JCRM</h2>
           <p className="text-gray-600 text-base leading-relaxed mb-6">
-            Jesus Come Revival Ministries (JCRM) is a Christ-centered, Bible-believing ministry dedicated to proclaiming the gospel of Jesus Christ and equipping believers to live Spirit-filled lives.
-            Rooted in the authority of Scripture and the power of the Holy Spirit, JCRM upholds the foundational truths of the Christian faith, including salvation through Jesus, the baptism of the Holy Spirit,
+            Jesus Come Revival Ministries (JCRM) is a Christ-centered, Bible-believing ministry dedicated to preaching the gospel of Jesus Christ and equipping believers to live Spirit-filled lives.
+            We uphold the foundational truths of the Christian faith, including salvation through Jesus, the baptism of the Holy Spirit,
             divine healing, and the hope of Christ’s soon return. We are committed to raising disciples, building strong local churches, and advancing God’s Kingdom through teaching, prayer, worship, and the 
-            demonstration of God’s power. At JCRM, we believe in living out our faith with holiness, love, and service, as we prepare the church for the coming of the Lord.
+            demonstration of God’s power. JCRM believes in living out our faith with holiness, love, and service, as we prepare the church for the coming of the Lord.
           </p>
           <Link
             href="/about"
             className="text-[#0077C8] font-medium hover:underline transition"
           >
-            Learn more about our mission →
+            Learn more →
           </Link>
         </div>
       </div>

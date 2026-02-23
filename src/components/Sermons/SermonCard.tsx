@@ -4,17 +4,14 @@ import Image from "next/image";
 import { Calendar, User } from "lucide-react";
 import { useState } from "react";
 import { SermonModal } from "./SermonModal";
+import { Sermon } from "@/types/Sermon";
 
-type Sermon = {
-  title: string;
-  slug: string;
-  thumbnail: string;
-  preacher: string;
-  date: string;
-  link: string;
-};
+interface SermonCardProps {
+  sermon: Sermon;
+  sermons: Sermon[];
+}
 
-export function SermonCard({ sermon, sermons }: { sermon: Sermon; sermons: Sermon[] }) {
+export function SermonCard({ sermon, sermons }: SermonCardProps) {
   const [open, setOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(
     sermons.findIndex((s) => s.slug === sermon.slug)

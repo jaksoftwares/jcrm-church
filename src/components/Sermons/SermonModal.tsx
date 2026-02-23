@@ -8,11 +8,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
-
-type Sermon = {
-  title: string;
-  link: string; // https://youtu.be/... or https://www.youtube.com/watch?v=...
-};
+import { Sermon } from "@/types/Sermon";
 
 type SermonModalProps = {
   open: boolean;

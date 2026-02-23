@@ -2,27 +2,7 @@
 "use client";
 
 import { Download } from "lucide-react";
-
-const audioSermons = [
-  {
-    title: "The Power of Prayer",
-    preacher: "Apostle Arthur Likhakasi",
-    date: "2025-06-10",
-    src: "/audio/the-power-of-prayer.mp3",
-  },
-  {
-    title: "Living a Kingdom Life",
-    preacher: "Pastor Mary W.",
-    date: "2025-06-03",
-    src: "/audio/living-a-kingdom-life.mp3",
-  },
-  {
-    title: "Faith That Works",
-    preacher: "Evangelist Daniel K.",
-    date: "2025-05-27",
-    src: "/audio/faith-that-works.mp3",
-  },
-];
+import { audioSermons } from "@/constants/sermons";
 
 export default function AudioLibrarySection() {
   return (

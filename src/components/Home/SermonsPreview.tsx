@@ -1,58 +1,34 @@
 "use client";
 
-// import Link from "next/link";
-// import Image from "next/image";
 import { motion } from "framer-motion";
 import { PlayCircle } from "lucide-react";
-
-// const sermons = [
-//   {
-//     title: "Are you for Sin or Righteousness?",
-//     speaker: "Apostle Arthur Likhakasi",
-//     image: "/sermons/are-you-for-sin-or-righteous.jpg",
-//     date: "June 16, 2025",
-//     link: "/sermons/walking-in-kingdom-authority",
-//   },
-//   {
-//     title: "Arise and Praise the Lord",
-//     speaker: "Apostle Arthur Likhakasi",
-//     image: "/sermons/arise-and-praise.jpg",
-//     date: "June 9, 2025",
-//     link: "/sermons/power-of-consistent-prayer",
-//   },
-//   {
-//     title: "Overcoming Evil Gates",
-//     speaker: "Apostle Arthur Likhakasi",
-//     image: "/sermons/overcoming-evil-gates.jpg",
-//     date: "June 2, 2025",
-//     link: "/sermons/faith-that-moves-mountains",
-//   },
-// ];
+import { sermonPreviews, sermons, extractVideoId, toEmbedUrl } from "@/constants/sermons";
+import { useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+} from "@/components/ui/dialog";
 
 export function SermonsPreview() {
-  const sermons = [
-    {
-      title: "Are you for Sin or Righteousness?",
-      speaker: "Apostle Arthur Likhakasi",
-      image: "/sermons/are-you-for-sin-or-righteous.jpg",
-      date: "June 16, 2025",
-      duration: "45 min"
-    },
-    {
-      title: "Arise and Praise the Lord",
-      speaker: "Apostle Arthur Likhakasi",
-      image: "/sermons/arise-and-praise.jpg",
-      date: "June 9, 2025",
-      duration: "52 min"
-    },
-    {
-      title: "Overcoming Evil Gates",
-      speaker: "Apostle Arthur Likhakasi",
-      image: "/sermons/overcoming-evil-gates.jpg",
-      date: "June 2, 2025",
-      duration: "48 min"
+  const [selectedSermon, setSelectedSermon] = useState<typeof sermonPreviews[0] | null>(null);
+
+  const handleSermonClick = (sermon: typeof sermonPreviews[0]) => {
+    // Find the matching sermon from the full list to get the video link
+    const fullSermon = sermons.find(
+      (s) => s.title === sermon.title && s.preacher.includes(sermon.speaker.split(" ")[sermon.speaker.split(" ").length - 1])
+    );
+    
+    if (fullSermon) {
+      setSelectedSermon({ ...sermon, link: fullSermon.link });
+    } else {
+      setSelectedSermon(sermon);
     }
-  ];
+  };
+
+  const getEmbedUrl = () => {
+    if (!selectedSermon?.link) return "";
+    return toEmbedUrl(selectedSermon.link);
+  };
 
   return (
     <section className="bg-gradient-to-b from-gray-50 to-white py-24">
@@ -76,7 +52,7 @@ export function SermonsPreview() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {sermons.map((sermon, index) => (
+          {sermonPreviews.map((sermon, index) => (
             <motion.div
               key={sermon.title}
               initial={{ opacity: 0, scale: 0.9 }}
@@ -84,6 +60,7 @@ export function SermonsPreview() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ y: -8 }}
+              onClick={() => handleSermonClick(sermon)}
               className="group bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer"
             >
               <div className="relative h-56 overflow-hidden">
@@ -111,7 +88,13 @@ export function SermonsPreview() {
                 <p className="text-sm text-gray-600">By {sermon.speaker}</p>
                 <div className="flex items-center justify-between pt-2 border-t border-gray-100">
                   <span className="text-xs text-gray-500">{sermon.date}</span>
-                  <button className="text-[#D32F2F] font-semibold text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                  <button 
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleSermonClick(sermon);
+                    }}
+                    className="text-[#D32F2F] font-semibold text-sm flex items-center gap-1 hover:gap-2 transition-all"
+                  >
                     Watch Now
                     <PlayCircle className="w-4 h-4" />
                   </button>
@@ -121,10 +104,43 @@ export function SermonsPreview() {
           ))}
         </div>
 
+        {/* Video Player Modal */}
+        <Dialog open={!!selectedSermon} onOpenChange={() => setSelectedSermon(null)}>
+          <DialogContent className="max-w-4xl p-0 overflow-hidden bg-black rounded-xl">
+            <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+              {selectedSermon?.link && getEmbedUrl() ? (
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full"
+                  src={`${getEmbedUrl()}?autoplay=1&rel=0`}
+                  title={selectedSermon.title}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                  allowFullScreen
+                />
+              ) : (
+                <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-gray-900">
+                  <a 
+                    href={selectedSermon?.link || "https://youtube.com/@jcrmchurch"} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 bg-[#D32F2F] hover:bg-red-600 text-white px-6 py-3 rounded-full text-lg font-semibold transition"
+                  >
+                    <PlayCircle size={24} />
+                    Watch on YouTube
+                  </a>
+                </div>
+              )}
+            </div>
+          </DialogContent>
+        </Dialog>
+
         <div className="text-center mt-12">
-          <button className="bg-[#D32F2F] hover:bg-red-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl">
+          <a 
+            href="/sermons" 
+            className="bg-[#D32F2F] hover:bg-red-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl inline-block"
+          >
             View All Sermons
-          </button>
+          </a>
         </div>
       </div>
     </section>

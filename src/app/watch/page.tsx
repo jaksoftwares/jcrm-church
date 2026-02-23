@@ -3,43 +3,29 @@
 // app/watch/page.tsx
 import React, { useState } from "react";
 import Image from "next/image";
-
-const videoIds = [
-  "KzH9M7kDRKE",
-  "kQ0VGJBoQNc",
-  "Dc2mh-fjIpA",
-  "czNxNxuxccs",
-  "ygKzxmn7Uj4",
-  "plXoL2J3yWA",
-  "gnoifsMTPTI",
-  "UGpUa6qW_K4",
-  "YCHDK9aqr-4",
-  "uXE1SAdAfpg",
-  "nO4W0RwCbq4",
-  "AmboecR-hyI",
-];
+import { watchVideoIds } from "@/constants/sermons";
 
 export default function WatchPage() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredVideos, setFilteredVideos] = useState(videoIds);
+  const [filteredVideos, setFilteredVideos] = useState(watchVideoIds);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const term = e.target.value.toLowerCase();
     setSearchTerm(term);
 
     if (!term) {
-      setFilteredVideos(videoIds);
+      setFilteredVideos(watchVideoIds);
       return;
     }
 
     // For demonstration, filtering by video ID contains search term
-    const filtered = videoIds.filter((id) => id.toLowerCase().includes(term));
+    const filtered = watchVideoIds.filter((id) => id.toLowerCase().includes(term));
     setFilteredVideos(filtered);
   };
 
   const resetFilters = () => {
     setSearchTerm("");
-    setFilteredVideos(videoIds);
+    setFilteredVideos(watchVideoIds);
   };
 
   return (
@@ -53,7 +39,7 @@ export default function WatchPage() {
             <span className="text-red-500">Word</span>
           </h2>
           <p className="text-gray-700 leading-relaxed">
-            Deepen your faith with powerful sermons, inspiring devotionals, and uplifting worship content—all accessible anytime, anywhere. Whether you&apos;re
+            Deepen your faith with powerful sermons, inspiring devotionals, and uplifting worship content—all accessible anytime, anywhere. Whether you're
             looking to watch an impactful sermon, read an insightful devotional, or listen to spirit-filled worship, JCRM has you covered.
           </p>
         </div>
