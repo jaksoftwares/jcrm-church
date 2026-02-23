@@ -9,7 +9,7 @@ import { Footer } from '@/components/common/Footer';
 
 export const metadata = {
   title: 'JCRM Church',
-  description: 'Welcome to the official JCRM Church website',
+  description: 'Welcome to the JCRM Church',
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
